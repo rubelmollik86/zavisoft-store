@@ -222,30 +222,18 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
+              <p className="text-kicks-gray-3 text-[12px] uppercase tracking-widest font-body">
                 Don&apos;t miss out
               </p>
-              <h2 className="font-display font-black text-3xl md:text-4xl text-white tracking-tight">
+              <h2 className="font-display font-black text-3xl md:text-4xl text-[#232321] tracking-tight">
                 NEW DROPS
               </h2>
             </div>
             <Link
               href="/products"
-              className="w-8 h-8 bg-kicks-blue flex items-center justify-center hover:bg-kicks-blue-light transition-colors"
+              className="p-1 flex items-center justify-center hover:bg-kicks-blue-light transition-colors rounded-[8px] bg-[#4A69E2]"
             >
-              <svg
-                className="w-4 h-4 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <h4>Shop New Drops</h4>
             </Link>
           </div>
 
@@ -256,7 +244,7 @@ export default function HomePage() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {newDrops.map((p) => (
                 <ProductCard key={p.id} product={p} variant="compact" />
               ))}
