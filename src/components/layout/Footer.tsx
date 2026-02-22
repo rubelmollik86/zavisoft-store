@@ -41,16 +41,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-lg font-bold uppercase tracking-widest mb-4 font-body">
               About us
             </h4>
-            <p className="text-kicks-gray-3 text-xs leading-relaxed font-body">
+            <p className="text-white text-xs leading-relaxed font-body">
               We are the biggest hyperstore in the universe. We got you all
               cover with our exclusive collection of top-shelf drops.
             </p>
           </div>
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
               Categories
             </h4>
             <ul className="space-y-2">
@@ -58,7 +58,7 @@ export function Footer() {
                 <li key={c}>
                   <Link
                     href="/products"
-                    className="text-kicks-gray-3 text-xs hover:text-white transition-colors font-body"
+                    className="text-white text-xs hover:text-white transition-colors font-body"
                   >
                     {c}
                   </Link>
@@ -67,7 +67,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
               Company
             </h4>
             <ul className="space-y-2">
@@ -75,7 +75,7 @@ export function Footer() {
                 <li key={c}>
                   <Link
                     href="#"
-                    className="text-kicks-gray-3 text-xs hover:text-white transition-colors font-body"
+                    className="text-white text-xs hover:text-white transition-colors font-body"
                   >
                     {c}
                   </Link>
@@ -84,7 +84,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-white text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
               Follow us
             </h4>
             <div className="flex gap-3">
@@ -103,7 +103,7 @@ export function Footer() {
 
         {/* Big KICKS text */}
         <div className="border-t border-kicks-gray-2 pt-8">
-          <div className="font-display font-black text-[100px] md:text-[160px] lg:text-[200px] leading-none text-kicks-gray-2 select-none">
+          <div className="font-display font-black text-[100px] md:text-[160px] lg:text-[200px] leading-none text-white select-none">
             KICKS
           </div>
           <p className="text-kicks-gray-3 text-xs mt-2 font-body">

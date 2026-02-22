@@ -256,18 +256,19 @@ export default function HomePage() {
       {/* ── CATEGORIES ── */}
       <section className="bg-kicks-gray py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header row */}
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-display font-black text-3xl md:text-4xl text-white tracking-tight">
+            <h2 className="font-display font-black text-4xl md:text-5xl text-white tracking-tight uppercase">
               CATEGORIES
             </h2>
             <div className="flex gap-2">
-              <button className="w-7 h-7 border border-kicks-gray-3 flex items-center justify-center text-kicks-gray-3 hover:border-white hover:text-white transition-all">
+              <button className="w-8 h-8 bg-[#2a2a2a] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#3a3a3a] transition-all rounded-sm">
                 <svg
-                  className="w-3 h-3"
+                  className="w-3.5 h-3.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 >
                   <path
                     strokeLinecap="round"
@@ -276,13 +277,13 @@ export default function HomePage() {
                   />
                 </svg>
               </button>
-              <button className="w-7 h-7 border border-kicks-gray-3 flex items-center justify-center text-kicks-gray-3 hover:border-white hover:text-white transition-all">
+              <button className="w-8 h-8 bg-[#2a2a2a] flex items-center justify-center text-gray-400 hover:text-white hover:bg-[#3a3a3a] transition-all rounded-sm">
                 <svg
-                  className="w-3 h-3"
+                  className="w-3.5 h-3.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={2.5}
                 >
                   <path
                     strokeLinecap="round"
@@ -294,20 +295,22 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Cards wrapper — single warm-gray rounded panel */}
           {state.categoriesStatus === "loading" ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="h-40 bg-kicks-gray-2 animate-pulse rounded-lg"
-                />
-              ))}
+            <div className="bg-[#FFFFFF] rounded-[28px] overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-4">
+                {Array.from({ length: 2 }).map((_, i) => (
+                  <div key={i} className="h-72 animate-pulse bg-[#e2dfdc]" />
+                ))}
+              </div>
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-              {state.categories.slice(0, 4).map((cat) => (
-                <CategoryCard key={cat.id} category={cat} />
-              ))}
+            <div className="bg-[#edecea] rounded-[28px] overflow-hidden">
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#d8d4d0] gap-1">
+                {state.categories.slice(0, 4).map((cat) => (
+                  <CategoryCard key={cat.id} category={cat} />
+                ))}
+              </div>
             </div>
           )}
         </div>
@@ -317,11 +320,11 @@ export default function HomePage() {
       <section className="bg-[#E7E7E3] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-display font-black text-3xl md:text-4xl text-white tracking-tight">
+            <h2 className="font-display font-black text-3xl md:text-4xl text-black tracking-tight">
               REVIEWS
             </h2>
             <span className="text-kicks-blue text-xs font-bold font-body">
-              4.9★
+              SEE ALL
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
