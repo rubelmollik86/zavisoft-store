@@ -6,7 +6,10 @@ import Link from "next/link";
 import { useProducts } from "@/context/ProductsContext";
 import { useCart } from "@/context/CartContext";
 import { ProductCard } from "@/components/products/ProductCard";
-import { ProductDetailSkeleton, ProductCardSkeleton } from "@/components/ui/Skeleton";
+import {
+  ProductDetailSkeleton,
+  ProductCardSkeleton,
+} from "@/components/ui/Skeleton";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { Footer } from "@/components/layout/Footer";
 import { formatPrice, getImage } from "@/utils";
@@ -57,7 +60,7 @@ export default function ProductDetailPage({
 
   if (state.selectedStatus === "loading" || state.selectedStatus === "idle") {
     return (
-      <div className="bg-black">
+      <div className="bg-[#E7E7E3]">
         <ProductDetailSkeleton />
       </div>
     );
@@ -65,7 +68,7 @@ export default function ProductDetailPage({
 
   if (state.selectedStatus === "failed" || !product) {
     return (
-      <div className="bg-black min-h-screen flex items-center justify-center">
+      <div className="bg-[#E7E7E3] min-h-screen flex items-center justify-center">
         <ErrorState
           message={state.error ?? "Product not found"}
           onRetry={() => fetchSingleProduct(Number(id))}
@@ -80,11 +83,10 @@ export default function ProductDetailPage({
     return getImage([raw], 0, product.id + i);
   });
   const mainImg =
-    images[selectedImg] ||
-    `https://picsum.photos/600/600?random=${product.id}`;
+    images[selectedImg] || `https://picsum.photos/600/600?random=${product.id}`;
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#E7E7E3] min-h-screen">
       {/* Breadcrumb */}
       <div className="border-b border-kicks-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-kicks-gray-3 font-body">
@@ -141,9 +143,7 @@ export default function ProductDetailPage({
                       alt={`View ${i + 1}`}
                       fill
                       className="object-cover"
-                      onError={() =>
-                        setImgErrors((p) => ({ ...p, [i]: true }))
-                      }
+                      onError={() => setImgErrors((p) => ({ ...p, [i]: true }))}
                       sizes="100px"
                     />
                   </button>

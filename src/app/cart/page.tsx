@@ -160,7 +160,7 @@ export default function CartPage() {
     .slice(0, 4);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#E7E7E3] min-h-screen">
       {/* Saving banner */}
       <div className="bg-kicks-gray border-b border-kicks-gray-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">

@@ -22,7 +22,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-screen bg-black text-white">
+      <body className="min-h-screen bg-[#E7E7E3] text-white">
         <ProductsProvider>
           <CartProvider>
             <Navbar />

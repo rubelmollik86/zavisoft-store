@@ -36,7 +36,7 @@ function ProductsContent() {
   }, [catParam, setCategory]);
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-[#E7E7E3] min-h-screen">
       {/* Page header */}
       <div className="bg-kicks-gray border-b border-kicks-gray-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -84,7 +84,7 @@ function ProductsContent() {
                 "px-3 py-1.5 text-xs font-bold uppercase tracking-widest transition-colors font-body",
                 !state.filters.categoryId
                   ? "bg-kicks-blue text-white"
-                  : "bg-kicks-gray text-kicks-gray-3 hover:text-white border border-kicks-gray-2"
+                  : "bg-kicks-gray text-kicks-gray-3 hover:text-white border border-kicks-gray-2",
               )}
             >
               All
@@ -94,14 +94,14 @@ function ProductsContent() {
                 key={cat.id}
                 onClick={() =>
                   setCategory(
-                    state.filters.categoryId === cat.id ? null : cat.id
+                    state.filters.categoryId === cat.id ? null : cat.id,
                   )
                 }
                 className={cn(
                   "px-3 py-1.5 text-xs font-bold uppercase tracking-widest transition-colors font-body",
                   state.filters.categoryId === cat.id
                     ? "bg-kicks-blue text-white"
-                    : "bg-kicks-gray text-kicks-gray-3 hover:text-white border border-kicks-gray-2"
+                    : "bg-kicks-gray text-kicks-gray-3 hover:text-white border border-kicks-gray-2",
                 )}
               >
                 {cat.name}
@@ -143,7 +143,7 @@ export default function ProductsPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-black flex items-center justify-center text-kicks-gray-3 font-display font-black text-4xl">
+        <div className="min-h-screen bg-[#E7E7E3] flex items-center justify-center text-kicks-gray-3 font-display font-black text-4xl">
           LOADING...
         </div>
       }
