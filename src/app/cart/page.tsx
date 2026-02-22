@@ -10,7 +10,6 @@ import { formatPrice, getImage } from "@/utils";
 import { Footer } from "@/components/layout/Footer";
 import { CartItem } from "@/types";
 
-// Extracted as a proper component so hooks are used legally
 function CartItemRow({
   item,
   onRemove,
@@ -100,7 +99,6 @@ function CartItemRow({
   );
 }
 
-// Extracted as component so it can use useState legally
 function OrderItemPreview({ item }: { item: CartItem }) {
   const [imgErr, setImgErr] = useState(false);
   const img = imgErr

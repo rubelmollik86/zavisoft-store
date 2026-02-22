@@ -18,12 +18,39 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-4 z-20">
+    <header className="sticky top-4 z-30">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Rounded navbar container */}
-        <div className="bg-[#EDEDED] rounded-2xl px-6 h-16 flex items-center relative shadow-sm">
-          {/* Left Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+        <div className="bg-[#EDEDED] rounded-2xl px-5 h-16 flex items-center relative shadow-sm">
+          {/* ✅ Mobile Hamburger */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="md:hidden text-gray-800"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              {mobileOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+
+          {/* ✅ Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-8 ml-6">
             {links.map((l) => (
               <Link
                 key={l.href}
@@ -38,36 +65,19 @@ export function Navbar() {
             ))}
           </nav>
 
-          {/* Center Logo */}
+          {/* ✅ Center Logo */}
           <Link href="/" className="absolute left-1/2 -translate-x-1/2">
-            <span className="text-3xl font-black tracking-tight text-black">
+            <span className="text-3xl font-black tracking-tight text-[#232321]">
               KICKS
             </span>
           </Link>
 
-          {/* Right Icons */}
-          <div className="flex items-center gap-5 ml-auto">
-            {/* Search */}
-            <button className="text-gray-700 hover:text-black transition">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-
+          {/* ✅ Right Icons */}
+          <div className="flex items-center gap-4 ml-auto">
             {/* Account */}
-            <button className="text-gray-700 hover:text-black transition">
+            <button className="text-gray-800">
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -83,27 +93,28 @@ export function Navbar() {
 
             {/* Cart */}
             <Link href="/cart" className="relative">
-              <svg
-                className="w-5 h-5 text-gray-700 hover:text-black transition"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                />
-              </svg>
-
-              {/* Orange Badge */}
               <span className="absolute -top-2 -right-2 bg-orange-400 text-black text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center">
                 {itemCount}
               </span>
             </Link>
           </div>
         </div>
+
+        {/* ✅ Mobile Dropdown Menu */}
+        {mobileOpen && (
+          <div className="md:hidden mt-3 bg-[#EDEDED] rounded-2xl shadow-sm py-4 px-5 space-y-3 animate-slide-up">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                onClick={() => setMobileOpen(false)}
+                className="block text-sm font-semibold text-gray-700 hover:text-black"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </header>
   );
