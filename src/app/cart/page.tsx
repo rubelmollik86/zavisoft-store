@@ -47,7 +47,7 @@ function CartItemRow({
         <p className="text-kicks-gray-3 text-xs font-body mt-1">
           Size: {item.size}
         </p>
-        <p className="text-white font-black text-sm font-body mt-1">
+        <p className="text-black font-black text-sm font-body mt-1">
           {formatPrice(item.product.price)}
         </p>
       </div>
@@ -80,7 +80,7 @@ function CartItemRow({
           >
             −
           </button>
-          <span className="w-8 text-center text-white text-xs font-bold font-body">
+          <span className="w-8 text-center text-black text-xs font-bold font-body">
             {item.quantity}
           </span>
           <button
@@ -159,195 +159,167 @@ export default function CartPage() {
 
   return (
     <div className="bg-[#E7E7E3] min-h-screen">
-      {/* Saving banner */}
-      <div className="bg-kicks-gray border-b border-kicks-gray-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <span className="text-xs text-kicks-gray-3 font-body">
-            Saving to celebrate —{" "}
-            <span className="text-white font-semibold">
-              We&apos;ll remind you when something special is coming up.
-            </span>
-          </span>
+      {/* ================= SAVING BANNER ================= */}
+      <div className="bg-[#efefe9] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <h1 className="text-3xl font-bold text-gray-900 mb-1">
+            Saving to celebrate
+          </h1>
+
+          <p className="text-sm text-gray-600">
+            Enjoy up to 60% off thousands of styles during the End of Year sale
+            – while supplies last. No code needed.
+          </p>
+
+          <p className="text-sm text-gray-700 mt-2">
+            <span className="underline cursor-pointer">Join us</span> or{" "}
+            <span className="underline cursor-pointer">Sign-in</span>
+          </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {done ? (
-          /* Success state */
-          <div className="flex flex-col items-center justify-center py-24 text-center animate-scale-in">
-            <div className="w-20 h-20 bg-green-500/10 border border-green-500/20 rounded flex items-center justify-center mb-6">
-              <svg
-                className="w-10 h-10 text-green-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <h2 className="font-display font-black text-4xl text-white mb-2">
-              ORDER PLACED!
-            </h2>
-            <p className="text-kicks-gray-3 text-sm font-body mb-8">
-              Thanks for shopping with KICKS.
-            </p>
-            <Link
-              href="/"
-              className="bg-kicks-blue text-white px-8 py-3 font-display font-black text-sm uppercase tracking-widest hover:bg-kicks-blue-light transition-colors"
-            >
-              CONTINUE SHOPPING
-            </Link>
-          </div>
-        ) : items.length === 0 ? (
-          /* Empty state */
-          <div className="flex flex-col items-center justify-center py-24 text-center">
-            <p className="font-display font-black text-6xl text-kicks-gray-2 mb-4">
-              BAG
-            </p>
-            <h2 className="font-display font-black text-4xl text-white mb-3">
-              YOUR BAG IS EMPTY
-            </h2>
-            <p className="text-kicks-gray-3 text-sm font-body mb-8">
-              Explore the latest drops and find your next pair.
-            </p>
-            <Link
-              href="/"
-              className="bg-kicks-blue text-white px-8 py-3 font-display font-black text-sm uppercase tracking-widest hover:bg-kicks-blue-light transition-colors"
-            >
-              SHOP NOW
-            </Link>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Your Bag */}
-            <div className="lg:col-span-2">
-              <div className="flex items-center justify-between mb-6">
-                <h1 className="font-display font-black text-4xl text-white tracking-tight">
-                  YOUR BAG
-                </h1>
-                <span className="text-kicks-gray-3 text-xs font-body">
-                  {itemCount} item{itemCount !== 1 ? "s" : ""}
-                </span>
-              </div>
-
-              <div>
-                {items.map((item) => (
-                  <CartItemRow
-                    key={item.product.id}
-                    item={item}
-                    onRemove={() => removeFromCart(item.product.id)}
-                    onUpdateQty={(qty) => updateQuantity(item.product.id, qty)}
-                  />
-                ))}
-              </div>
-
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 mt-6 text-xs font-bold uppercase tracking-widest text-kicks-blue hover:text-kicks-blue-light transition-colors font-body"
-              >
+      {/* ================= PAGE CONTAINER ================= */}
+      <div className="bg-[#efefe9] ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          {done ? (
+            /* ================= SUCCESS STATE ================= */
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <div className="w-20 h-20 bg-green-100 border border-green-200 rounded-full flex items-center justify-center mb-6">
                 <svg
-                  className="w-4 h-4"
+                  className="w-10 h-10 text-green-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    d="M5 13l4 4L19 7"
                   />
                 </svg>
-                Continue Shopping
+              </div>
+
+              <h2 className="text-4xl font-bold text-gray-900 mb-2">
+                ORDER PLACED!
+              </h2>
+
+              <p className="text-gray-600 text-sm mb-8">
+                Thanks for shopping with KICKS.
+              </p>
+
+              <Link
+                href="/"
+                className="bg-black text-white px-8 py-3 text-sm font-semibold hover:bg-gray-900 transition"
+              >
+                CONTINUE SHOPPING
               </Link>
             </div>
+          ) : items.length === 0 ? (
+            /* ================= EMPTY STATE ================= */
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <h2 className="text-4xl font-bold text-gray-900 mb-3">
+                Your bag is empty
+              </h2>
 
-            {/* Order Summary */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-20">
-                <h2 className="font-display font-black text-3xl text-white tracking-tight mb-6">
-                  ORDER SUMMARY
-                </h2>
+              <p className="text-gray-600 text-sm mb-8">
+                Explore the latest drops and find your next pair.
+              </p>
 
-                {/* Item previews — using proper component */}
-                {items.slice(0, 2).map((item) => (
-                  <OrderItemPreview key={item.product.id} item={item} />
-                ))}
-                {items.length > 2 && (
-                  <p className="text-kicks-gray-3 text-xs font-body mb-3">
-                    +{items.length - 2} more item
-                    {items.length - 2 !== 1 ? "s" : ""}
+              <Link
+                href="/"
+                className="bg-black text-white px-8 py-3 text-sm font-semibold hover:bg-gray-900 transition"
+              >
+                SHOP NOW
+              </Link>
+            </div>
+          ) : (
+            /* ================= MAIN LAYOUT ================= */
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {/* ================= YOUR BAG ================= */}
+              <div className="lg:col-span-2">
+                <div className="bg-white rounded-2xl p-6">
+                  <div className="flex items-center justify-between mb-2">
+                    <h1 className="text-2xl font-bold text-gray-900">
+                      Your Bag
+                    </h1>
+                  </div>
+
+                  <p className="text-sm text-gray-600 mb-6">
+                    Items in your bag not reserved – check out now to make them
+                    yours.
                   </p>
-                )}
 
-                {/* Promo code */}
-                <div className="flex gap-2 mb-6 mt-4">
-                  <input
-                    type="text"
-                    placeholder="Promo code"
-                    className="flex-1 bg-kicks-gray border border-kicks-gray-2 text-white placeholder-kicks-gray-3 text-xs px-3 py-2 focus:outline-none focus:border-kicks-blue font-body"
-                  />
-                  <button className="bg-kicks-gray border border-kicks-gray-2 text-white text-xs px-3 py-2 font-bold uppercase tracking-widest hover:border-kicks-gray-3 transition-colors font-body">
-                    Apply
-                  </button>
-                </div>
-
-                {/* Totals */}
-                <div className="space-y-3 border-t border-kicks-gray-2 pt-5">
-                  {[
-                    { label: "Subtotal", value: formatPrice(subtotal) },
-                    { label: "Sales Tax", value: formatPrice(tax) },
-                    {
-                      label: "Shipping",
-                      value: shipping === 0 ? "FREE" : formatPrice(shipping),
-                      green: shipping === 0,
-                    },
-                  ].map((row) => (
-                    <div key={row.label} className="flex justify-between">
-                      <span className="text-kicks-gray-3 text-xs font-body uppercase tracking-wider">
-                        {row.label}
-                      </span>
-                      <span
-                        className={`text-xs font-bold font-body ${
-                          row.green ? "text-green-400" : "text-white"
-                        }`}
-                      >
-                        {row.value}
-                      </span>
-                    </div>
-                  ))}
-                  <div className="flex justify-between border-t border-kicks-gray-2 pt-3">
-                    <span className="text-white font-black font-body uppercase tracking-wider text-sm">
-                      Total
-                    </span>
-                    <span className="text-white font-black font-body text-sm">
-                      {formatPrice(orderTotal)}
-                    </span>
+                  <div className="space-y-6">
+                    {items.map((item) => (
+                      <CartItemRow
+                        key={item.product.id}
+                        item={item}
+                        onRemove={() => removeFromCart(item.product.id)}
+                        onUpdateQty={(qty) =>
+                          updateQuantity(item.product.id, qty)
+                        }
+                      />
+                    ))}
                   </div>
                 </div>
+              </div>
 
-                <button
-                  onClick={handleCheckout}
-                  disabled={checkingOut}
-                  className="w-full bg-kicks-blue text-white font-display font-black text-sm uppercase tracking-widest py-4 mt-6 hover:bg-kicks-blue-light transition-colors disabled:opacity-70"
-                >
-                  {checkingOut ? "PROCESSING..." : "CHECKOUT →"}
-                </button>
+              {/* ================= ORDER SUMMARY ================= */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-24">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    Order Summary
+                  </h2>
 
-                {shipping > 0 && (
-                  <p className="text-kicks-gray-3 text-[10px] text-center mt-3 font-body">
-                    Add {formatPrice(100 - subtotal)} more for free shipping!
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="uppercase text-gray-700">
+                        {itemCount} item
+                      </span>
+                      <span className="font-medium text-black">
+                        {formatPrice(subtotal)}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Delivery</span>
+                      <span className="text-black">
+                        {formatPrice(shipping)}
+                      </span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-gray-700">Sales Tax</span>
+                      <span className="text-black">–</span>
+                    </div>
+
+                    <div className="flex justify-between pt-4 mt-4 border-t border-gray-300">
+                      <span className="text-lg font-bold text-gray-900">
+                        Total
+                      </span>
+                      <span className="text-lg font-bold text-gray-900">
+                        {formatPrice(orderTotal)}
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleCheckout}
+                    disabled={checkingOut}
+                    className="w-full bg-[#232321] text-white py-3 mt-6 font-semibold rounded-xl hover:opacity-90 transition disabled:opacity-60"
+                  >
+                    {checkingOut ? "PROCESSING..." : "CHECKOUT"}
+                  </button>
+
+                  <p className="mt-4 underline text-sm text-black cursor-pointer">
+                    Use a promo code
                   </p>
-                )}
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
       {/* You may also like */}
