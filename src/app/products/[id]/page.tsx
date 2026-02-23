@@ -86,198 +86,257 @@ export default function ProductDetailPage({
     images[selectedImg] || `https://picsum.photos/600/600?random=${product.id}`;
 
   return (
-    <div className="bg-[#E7E7E3] min-h-screen">
+    <div className="bg-[#E7E7E3] min-h-screen ">
       {/* Breadcrumb */}
       <div className="border-b border-kicks-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-xs text-kicks-gray-3 font-body">
-          <Link href="/" className="hover:text-white transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-lg text-black font-body">
+          <Link href="/" className="hover:text-black transition-colors">
             Home
           </Link>
           <span>/</span>
-          <Link href="/products" className="hover:text-white transition-colors">
+          <Link href="/products" className="hover:text-black transition-colors">
             Products
           </Link>
           <span>/</span>
-          <span className="text-white truncate max-w-[200px]">
+          <span className="text-kicks-blue truncate max-w-[300px]">
             {product.title}
           </span>
         </div>
       </div>
 
       {/* Main product */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-          {/* Images */}
-          <div className="space-y-3 animate-slide-in-left">
-            <div className="relative aspect-square bg-kicks-gray overflow-hidden">
-              <Image
-                src={mainImg}
-                alt={product.title}
-                fill
-                className="object-cover"
-                priority
-                onError={() =>
-                  setImgErrors((p) => ({ ...p, [selectedImg]: true }))
-                }
-                sizes="(max-width:1024px) 100vw, 50vw"
-              />
-              <div className="absolute top-3 left-3 bg-kicks-blue text-white text-[10px] font-black px-2 py-1 uppercase tracking-widest font-body">
-                NEW
+      <div className="bg-[#f5f5f3]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+            {/* Images */}
+            <div className="space-y-3">
+              <div className="relative aspect-square bg-white rounded-lg overflow-hidden">
+                <Image
+                  src={mainImg}
+                  alt={product.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  onError={() =>
+                    setImgErrors((p) => ({ ...p, [selectedImg]: true }))
+                  }
+                  sizes="(max-width:1024px) 100vw, 50vw"
+                />
+
+                <div className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">
+                  New Release
+                </div>
               </div>
+
+              {images.length > 1 && (
+                <div className="grid grid-cols-4 gap-3">
+                  {images.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setSelectedImg(i)}
+                      className={`relative aspect-square bg-white rounded-md overflow-hidden border transition-all
+                  ${
+                    selectedImg === i
+                      ? "border-gray-900"
+                      : "border-transparent hover:border-gray-400"
+                  }`}
+                    >
+                      <Image
+                        src={img}
+                        alt={`View ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        onError={() =>
+                          setImgErrors((p) => ({ ...p, [i]: true }))
+                        }
+                        sizes="100px"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {images.length > 1 && (
-              <div className="grid grid-cols-4 gap-2">
-                {images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedImg(i)}
-                    className={`relative aspect-square bg-kicks-gray overflow-hidden border-2 transition-all ${
-                      selectedImg === i
-                        ? "border-kicks-blue"
-                        : "border-transparent hover:border-kicks-gray-3"
-                    }`}
-                  >
-                    <Image
-                      src={img}
-                      alt={`View ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      onError={() => setImgErrors((p) => ({ ...p, [i]: true }))}
-                      sizes="100px"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+            {/* Product Info */}
+            <div className="bg-[#efefec] rounded-xl p-6 space-y-6">
+              <p className="text-gray-500 text-[11px] uppercase tracking-widest">
+                {product.category.name}
+              </p>
 
-          {/* Product Info */}
-          <div className="space-y-5 animate-slide-up">
-            <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
-              {product.category.name}
-            </p>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
+                {product.title}
+              </h1>
 
-            <h1 className="font-display font-black text-3xl md:text-4xl text-white tracking-tight leading-tight">
-              {product.title.toUpperCase()}
-            </h1>
-
-            <div className="flex items-baseline gap-3">
-              <span className="text-white font-black font-display text-4xl">
+              <span className="text-blue-600 font-semibold text-lg">
                 {formatPrice(product.price)}
               </span>
-            </div>
 
-            <div>
-              <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body mb-2">
-                About the product
-              </p>
-              <p className="text-kicks-gray-3 text-sm leading-relaxed font-body">
-                {product.description}
-              </p>
-            </div>
-
-            <div className="bg-kicks-blue/10 border border-kicks-blue/20 p-3">
-              <p className="text-kicks-blue text-[10px] font-bold uppercase tracking-widest font-body">
-                Don&apos;t miss out!
-              </p>
-              <p className="text-white text-xs font-body mt-0.5">
-                Only a few left in stock.
-              </p>
-            </div>
-
-            {/* Size selector */}
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-white text-xs font-bold uppercase tracking-widest font-body">
-                  Select Size
+              {/* Color selector */}
+              <div>
+                <p className="text-gray-500 text-[11px] uppercase tracking-widest mb-2">
+                  Color
                 </p>
-                <button className="text-kicks-blue text-[10px] font-body hover:underline">
-                  Size Guide
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {SIZES.map((size) => (
+                <div className="flex items-center gap-3">
                   <button
-                    key={size}
-                    onClick={() => setSelectedSize(size)}
-                    className={`px-3 py-2 text-xs font-bold font-body uppercase transition-all ${
-                      selectedSize === size
-                        ? "bg-kicks-blue text-white"
-                        : "bg-kicks-gray border border-kicks-gray-2 text-kicks-gray-3 hover:border-kicks-gray-3 hover:text-white"
-                    }`}
+                    className="w-7 h-7 rounded-full border-2 border-gray-900 flex items-center justify-center"
+                    aria-label="Shadow Navy"
                   >
-                    {size}
+                    <span className="w-4 h-4 rounded-full bg-[#1f2937]" />
                   </button>
-                ))}
-              </div>
-            </div>
 
-            {inCart && (
-              <div className="flex items-center gap-2 text-xs text-kicks-yellow font-body animate-fade-in">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
+                  <button
+                    className="w-7 h-7 rounded-full border border-gray-400 flex items-center justify-center"
+                    aria-label="Army Green"
+                  >
+                    <span className="w-4 h-4 rounded-full bg-[#6b7280]" />
+                  </button>
+                </div>
+              </div>
+
+              {/* About */}
+              <div>
+                <p className="text-gray-500 text-[11px] uppercase tracking-widest mb-2">
+                  About the product
+                </p>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {product.description}
+                </p>
+              </div>
+
+              {/* Stock info */}
+              <div className="bg-blue-50 border border-blue-100 p-3 rounded">
+                <p className="text-blue-600 text-[11px] font-semibold uppercase">
+                  Don&apos;t miss out!
+                </p>
+                <p className="text-gray-700 text-xs mt-0.5">
+                  Only a few left in stock.
+                </p>
+              </div>
+
+              {/* Size selector */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-gray-700 text-xs font-semibold uppercase">
+                    Size
+                  </p>
+                  <button className="text-gray-500 text-xs underline">
+                    Size chart
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-5 gap-2">
+                  {SIZES.map((size) => (
+                    <button
+                      key={size}
+                      onClick={() => setSelectedSize(size)}
+                      className={`py-2 text-sm font-semibold rounded border transition
+                  ${
+                    selectedSize === size
+                      ? "bg-gray-900 text-white border-gray-900"
+                      : "bg-white text-gray-700 border-gray-300 hover:border-gray-900"
+                  }`}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {inCart && (
+                <div className="flex items-center gap-2 text-xs text-green-600">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {qty} pair{qty > 1 ? "s" : ""} in your bag · Size{" "}
+                  {selectedSize}
+                </div>
+              )}
+
+              {/* Buttons */}
+              <div className="space-y-3">
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleAdd}
+                    disabled={adding}
+                    className="flex-1 bg-black text-white py-3 rounded-md text-sm font-semibold hover:bg-gray-900 transition disabled:opacity-50"
+                  >
+                    {adding
+                      ? "ADDING..."
+                      : added
+                        ? "✓ ADDED TO BAG"
+                        : "ADD TO CART"}
+                  </button>
+
+                  {/* Love / Wishlist */}
+                  <button
+                    className="w-12 h-12 flex items-center justify-center border border-gray-400 rounded-md hover:border-gray-900 transition"
+                    aria-label="Add to wishlist"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-5 h-5 text-gray-700"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5
+                     -1.935 0-3.597 1.126-4.312 2.733
+                     -.715-1.607-2.377-2.733-4.313-2.733
+                     C5.1 3.75 3 5.765 3 8.25
+                     c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <Link
+                  href="/cart"
+                  className="block w-full text-center bg-blue-600 text-white py-3 rounded-md text-sm font-semibold hover:bg-blue-700 transition"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                {qty} pair{qty > 1 ? "s" : ""} in your bag · Size {selectedSize}
+                  BUY IT NOW
+                </Link>
               </div>
-            )}
 
-            <div className="flex gap-3">
-              <button
-                onClick={handleAdd}
-                disabled={adding}
-                className="flex-1 bg-kicks-blue text-white font-black text-sm uppercase tracking-widest py-4 hover:bg-kicks-blue-light transition-colors disabled:opacity-50 font-display"
-              >
-                {adding ? "ADDING..." : added ? "✓ ADDED TO BAG" : "ADD TO BAG"}
-              </button>
-              <Link
-                href="/cart"
-                className="flex-1 border border-kicks-gray-3 text-white font-black text-sm uppercase tracking-widest py-4 text-center hover:border-white transition-colors font-display"
-              >
-                VIEW BAG
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 border-t border-kicks-gray-2 pt-5">
-              <div>
-                <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
-                  Product ID
-                </p>
-                <p className="text-white text-xs font-body mt-0.5">
-                  #{product.id}
-                </p>
-              </div>
-              <div>
-                <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
-                  Availability
-                </p>
-                <p className="text-green-400 text-xs font-body mt-0.5">
-                  In Stock
-                </p>
-              </div>
-              <div>
-                <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
-                  Shipping
-                </p>
-                <p className="text-white text-xs font-body mt-0.5">
-                  {product.price > 100 ? "Free" : "$9.99"}
-                </p>
-              </div>
-              <div>
-                <p className="text-kicks-gray-3 text-[10px] uppercase tracking-widest font-body">
-                  Returns
-                </p>
-                <p className="text-white text-xs font-body mt-0.5">30 days</p>
+              {/* Meta */}
+              <div className="grid grid-cols-2 gap-4 pt-5 border-t border-gray-300">
+                <div>
+                  <p className="text-gray-500 text-[11px] uppercase">
+                    Product ID
+                  </p>
+                  <p className="text-gray-800 text-xs">#{product.id}</p>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-[11px] uppercase">
+                    Availability
+                  </p>
+                  <p className="text-green-600 text-xs">In Stock</p>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-[11px] uppercase">
+                    Shipping
+                  </p>
+                  <p className="text-gray-800 text-xs">
+                    {product.price > 100 ? "Free" : "$9.99"}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-500 text-[11px] uppercase">Returns</p>
+                  <p className="text-gray-800 text-xs">30 days</p>
+                </div>
               </div>
             </div>
           </div>

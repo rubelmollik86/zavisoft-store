@@ -18,7 +18,7 @@ export function Navbar() {
   ];
 
   return (
-    <header className="sticky top-4 z-30">
+    <header className=" top-4 z-30">
       <div className="max-w-7xl mx-auto px-4">
         <div className="bg-[#EDEDED] rounded-2xl px-5 h-16 flex items-center relative shadow-sm">
           {/* ✅ Mobile Hamburger */}
