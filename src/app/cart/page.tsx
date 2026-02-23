@@ -161,7 +161,7 @@ export default function CartPage() {
     <div className="bg-[#E7E7E3] min-h-screen">
       {/* ================= SAVING BANNER ================= */}
       <div className="bg-[#efefe9] border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <h1 className="text-3xl font-bold text-gray-900 mb-1">
             Saving to celebrate
           </h1>
@@ -180,7 +180,7 @@ export default function CartPage() {
 
       {/* ================= PAGE CONTAINER ================= */}
       <div className="bg-[#efefe9] ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-10">
           {done ? (
             /* ================= SUCCESS STATE ================= */
             <div className="flex flex-col items-center justify-center py-24 text-center">
@@ -325,7 +325,7 @@ export default function CartPage() {
       {/* You may also like */}
       {related.length > 0 && (
         <section className="bg-kicks-gray border-t border-kicks-gray-2 py-12 mt-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-display font-black text-3xl text-white mb-6">
               YOU MAY ALSO LIKE
             </h2>

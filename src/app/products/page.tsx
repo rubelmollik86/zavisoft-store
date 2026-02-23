@@ -39,7 +39,7 @@ function ProductsContent() {
     <div className="bg-[#E7E7E3] min-h-screen">
       {/* Page header */}
       <div className="bg-kicks-gray border-b border-kicks-gray-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h1 className="font-display font-black text-5xl md:text-6xl text-white tracking-tight">
             ALL PRODUCTS
           </h1>
@@ -51,7 +51,7 @@ function ProductsContent() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Search + Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
           <div className="relative flex-1 max-w-sm">
@@ -121,7 +121,7 @@ function ProductsContent() {
 
       {state.categories.length > 0 && (
         <section className="bg-kicks-gray border-t border-kicks-gray-2 py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-display font-black text-3xl text-white mb-6">
               CATEGORIES
             </h2>

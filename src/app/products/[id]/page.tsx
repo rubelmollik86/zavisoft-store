@@ -89,7 +89,7 @@ export default function ProductDetailPage({
     <div className="bg-[#E7E7E3] min-h-screen ">
       {/* Breadcrumb */}
       <div className="border-b border-kicks-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-lg text-black font-body">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 text-lg text-black font-body">
           <Link href="/" className="hover:text-black transition-colors">
             Home
           </Link>
@@ -106,7 +106,7 @@ export default function ProductDetailPage({
 
       {/* Main product */}
       <div className="bg-[#f5f5f3]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
             {/* Images */}
             <div className="space-y-3">
@@ -345,7 +345,7 @@ export default function ProductDetailPage({
 
       {/* You May Also Like */}
       <section className="bg-kicks-gray border-t border-kicks-gray-2 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-display font-black text-3xl text-white tracking-tight">
               YOU MAY ALSO LIKE

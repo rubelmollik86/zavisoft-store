@@ -2,63 +2,77 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-kicks-gray border-t border-kicks-gray-2">
-      {/* Newsletter / CTA Banner */}
-      <div className="bg-kicks-blue">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex-1">
-              <p className="text-white text-sm font-semibold mb-1 font-body">
-                JOIN OUR KICKSPLUS
-              </p>
-              <p className="text-white text-sm font-semibold font-body">
-                CLUB & GET 15% OFF
-              </p>
-              <p className="text-white/70 text-xs mt-2 font-body">
-                Sign up for the latest drops and exclusives.
-              </p>
+    <footer className="bg-[#E7E7E3] px-4 sm:px-6 lg:px-8 pb-4 pt-4">
+      {/* ── Blue banner ── */}
+      <div className="bg-kicks-blue  px-6 py-10 relative z-0">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+          {/* Left */}
+          <div className="flex-1">
+            <h3 className="text-white font-black text-2xl md:text-3xl leading-tight font-display uppercase">
+              JOIN OUR KICKSPLUS
+              <br />
+              CLUB & GET 15% OFF
+            </h3>
+            <p className="text-white/80 text-sm mt-2 mb-5 font-body">
+              Sign up for free! Join the community.
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Email address"
+                className="bg-transparent border border-white/60 text-white placeholder-white/60 rounded-md px-4 py-2 text-sm outline-none focus:border-white font-body w-48 sm:w-64"
+              />
+              <button className="bg-[#1a1a1a] text-white px-5 py-2 text-xs font-black uppercase tracking-wider rounded-md hover:bg-black transition-colors font-body">
+                SUBMIT
+              </button>
             </div>
-            <div className="flex flex-col items-end gap-3">
-              <span className="font-display font-black text-4xl md:text-5xl text-white tracking-tight">
-                KICKS<sup className="text-kicks-yellow text-lg">®</sup>
-              </span>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="bg-[#E7E7E3]/10 border border-white/20 text-white placeholder-white/50 rounded px-3 py-1.5 text-sm outline-none focus:border-white/50 font-body"
-                />
-                <button className="bg-[#E7E7E3] text-white px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded hover:bg-kicks-gray-2 transition-colors font-body">
-                  Submit
-                </button>
-              </div>
-            </div>
+          </div>
+
+          {/* Right: KICKS+ */}
+          <div className="flex items-start">
+            <span className="font-display font-black text-5xl md:text-6xl text-white tracking-tight leading-none">
+              KICKS
+            </span>
+            <span className="text-kicks-yellow text-xl font-black leading-none mt-1">
+              +
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Footer links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+      {/* ── Dark card — overlaps blue banner bottom via negative margin-top ── */}
+      <div className="bg-[#1a1a1a] rounded-3xl px-6 pt-10 pb-0 -mt-7 relative z-50 overflow-hidden">
+        {/* Links grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-4 pb-8">
+          {/* About */}
           <div>
-            <h4 className="text-[#FFA52F] text-lg font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-base font-black uppercase mb-3 font-body">
               About us
             </h4>
-            <p className="text-white text-xs leading-relaxed font-body">
+            <p className="text-gray-400 text-xs leading-relaxed font-body">
               We are the biggest hyperstore in the universe. We got you all
-              cover with our exclusive collection of top-shelf drops.
+              cover with our exclusive collections and latest drops.
             </p>
           </div>
+
+          {/* Categories */}
           <div>
-            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-black uppercase tracking-widest mb-3 font-body">
               Categories
             </h4>
             <ul className="space-y-2">
-              {["Runners", "Sneakers", "Outdoor", "Golf", "Hiking"].map((c) => (
+              {[
+                "Runners",
+                "Sneakers",
+                "Basketball",
+                "Outdoor",
+                "Golf",
+                "Hiking",
+              ].map((c) => (
                 <li key={c}>
                   <Link
                     href="/products"
-                    className="text-white text-xs hover:text-white transition-colors font-body"
+                    className="text-gray-300 text-xs hover:text-white transition-colors font-body"
                   >
                     {c}
                   </Link>
@@ -66,16 +80,18 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Company */}
           <div>
-            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-black uppercase tracking-widest mb-3 font-body">
               Company
             </h4>
             <ul className="space-y-2">
-              {["Partners", "About", "Contact", "Blogs"].map((c) => (
+              {["About", "Contact", "Blogs"].map((c) => (
                 <li key={c}>
                   <Link
                     href="#"
-                    className="text-white text-xs hover:text-white transition-colors font-body"
+                    className="text-gray-300 text-xs hover:text-white transition-colors font-body"
                   >
                     {c}
                   </Link>
@@ -83,34 +99,88 @@ export function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Follow us */}
           <div>
-            <h4 className="text-[#FFA52F] text-xs font-bold uppercase tracking-widest mb-4 font-body">
+            <h4 className="text-[#FFA52F] text-xs font-black uppercase tracking-widest mb-3 font-body">
               Follow us
             </h4>
             <div className="flex gap-3">
-              {["T", "I", "F"].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="w-7 h-7 rounded-full border border-kicks-gray-3 flex items-center justify-center text-kicks-gray-3 text-xs hover:border-white hover:text-white transition-all"
+              {/* Facebook */}
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {s}
-                </a>
-              ))}
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                </svg>
+              </a>
+              {/* Instagram */}
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+                </svg>
+              </a>
+              {/* Twitter/X */}
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              {/* TikTok */}
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Big KICKS text */}
-        <div className="border-t border-kicks-gray-2 pt-8">
-          <div className="font-display font-black text-[100px] md:text-[160px] lg:text-[200px] leading-none text-white select-none">
+        {/* Big KICKS — full bleed inside dark card */}
+        <div className="overflow-hidden">
+          <div
+            className="font-display font-black leading-none text-white select-none whitespace-nowrap"
+            style={{ fontSize: "clamp(80px, 22vw, 260px)" }}
+          >
             KICKS
           </div>
-          <p className="text-kicks-gray-3 text-xs mt-2 font-body">
-            © All rights reserved
-          </p>
         </div>
       </div>
+
+      {/* Copyright */}
+      <p className="text-gray-500 text-xs text-center mt-4 font-body">
+        © All rights reserved
+      </p>
     </footer>
   );
 }

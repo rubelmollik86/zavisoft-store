@@ -1,7 +1,9 @@
 import { cn } from "@/utils";
 
 export function Skeleton({ className }: { className?: string }) {
-  return <div className={cn("animate-pulse bg-kicks-gray-2 rounded", className)} />;
+  return (
+    <div className={cn("animate-pulse bg-kicks-gray-2 rounded", className)} />
+  );
 }
 
 export function ProductCardSkeleton() {
@@ -22,12 +24,14 @@ export function ProductCardSkeleton() {
 
 export function ProductDetailSkeleton() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="px-4 sm:px-6 lg:px-8 mx-auto px-4 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-4">
           <Skeleton className="w-full aspect-square rounded-lg" />
           <div className="grid grid-cols-4 gap-2">
-            {[1, 2, 3, 4].map((i) => <Skeleton key={i} className="aspect-square rounded" />)}
+            {[1, 2, 3, 4].map((i) => (
+              <Skeleton key={i} className="aspect-square rounded" />
+            ))}
           </div>
         </div>
         <div className="space-y-5">
@@ -47,7 +51,5 @@ export function ProductDetailSkeleton() {
 }
 
 export function HeroSkeleton() {
-  return (
-    <div className="w-full h-[480px] animate-pulse bg-kicks-gray" />
-  );
+  return <div className="w-full h-[480px] animate-pulse bg-kicks-gray" />;
 }
